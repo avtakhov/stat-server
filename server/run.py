@@ -15,8 +15,10 @@ class StatisticsHandler(BaseHTTPRequestHandler):
         print("got request")
         global collector
         content_length = int(self.headers['Content-Length'])
-        collector += json.loads(
-            self.rfile.read(content_length).decode('utf-8'),
+        collector.append(
+            json.loads(
+                self.rfile.read(content_length).decode('utf-8'),
+            ),
         )
         self.send_response(200)
 
