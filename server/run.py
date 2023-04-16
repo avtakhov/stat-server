@@ -35,6 +35,7 @@ class Server(HTTPServer):
 
         print(len(collector))
         collector = collector[-Server.MIN_SIZE:]
+        print(collector)
 
         with open('a.csv', 'w') as file:
             writer = csv.DictWriter(file, fieldnames=['type', 'time_point', 'size'])
@@ -43,7 +44,7 @@ class Server(HTTPServer):
 
 
 def run():
-    server_address = ('cl19275.tw1.ru', 8000)
+    server_address = ('94.154.11.214', 8000)
     httpd = Server(server_address)
     httpd.serve_forever()
 
