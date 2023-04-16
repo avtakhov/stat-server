@@ -24,7 +24,7 @@ class StatisticsHandler(BaseHTTPRequestHandler):
 
 
 class Server(HTTPServer):
-    MIN_SIZE = 20
+    MIN_SIZE = 120
 
     def __init__(self, server_address):
         super().__init__(server_address, StatisticsHandler)
@@ -32,7 +32,7 @@ class Server(HTTPServer):
 
     def service_actions(self):
         global collector
-        if len(collector) < Server.MIN_SIZE:
+        if len(collector) <= Server.MIN_SIZE:
             return
 
         print(len(collector))
