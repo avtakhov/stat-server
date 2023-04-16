@@ -43,7 +43,7 @@ class Server(HTTPServer):
 
 
 def run():
-    server_address = ('localhost', 8000)
+    server_address = ('cl19275.tw1.ru', 8000)
     httpd = Server(server_address)
     httpd.serve_forever()
 
